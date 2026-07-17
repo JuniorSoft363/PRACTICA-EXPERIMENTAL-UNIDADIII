@@ -1,0 +1,13 @@
+{
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true,
+        "**/c:\\Users\\User\\Desktop\\PRACTICA EXPERIMENTAL UNIDADIII\\main.aux": true,
+        "**/c:\\Users\\User\\Desktop\\PRACTICA EXPERIMENTAL UNIDADIII\\main.log": true,
+        "**/c:\\Users\\User\\Desktop\\PRACTICA EXPERIMENTAL UNIDADIII\\main.gz": true,
+        "**/c:\\Users\\User\\Desktop\\PRACTICA EXPERIMENTAL UNIDADIII\\main.out": true
+    }
+}
