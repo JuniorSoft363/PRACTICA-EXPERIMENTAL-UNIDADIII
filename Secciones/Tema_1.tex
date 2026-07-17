@@ -1,0 +1,17 @@
+\section{Topic 1: Integrated Objects and State Management in Web Applications}
+
+\subsection{El objeto Request}
+
+El objeto Request encapsula la información que el cliente envía al servidor dentro de una petición HTTP, incluyendo parámetros, cabeceras, cookies y el cuerpo del mensaje. En plataformas basadas en Java, el contenedor web transforma cada petición entrante en un objeto \texttt{HttpServletRequest} que es entregado al componente encargado de procesarla \cite{yang_asp}, \cite{gfg_servlet}. Este objeto constituye el punto de entrada de datos hacia la lógica de negocio y es la base sobre la cual se construyen mecanismos de enrutamiento, validación y control de acceso.
+
+\subsection{El objeto Response}
+
+El objeto Response representa la información que el servidor devuelve al cliente tras procesar la solicitud; incluye el cuerpo del contenido, el código de estado HTTP y las cabeceras de salida, entre ellas las utilizadas para el envío de cookies mediante métodos como \texttt{addCookie()} \cite{gfg_servlet}. Este objeto es responsable de convertir el resultado del procesamiento interno del servidor en un mensaje HTTP comprensible para el navegador, cerrando así el ciclo petición-respuesta que caracteriza a la arquitectura cliente-servidor \cite{yang_asp}.
+
+\subsection{El objeto Session}
+
+El objeto Session permite mantener el estado de un usuario a través de múltiples peticiones HTTP, las cuales son, por naturaleza, independientes entre sí. La interfaz \texttt{HttpSession} posibilita almacenar y recuperar atributos asociados a un cliente específico durante el tiempo que dure su interacción con la aplicación \cite{gfg_servlet}. En arquitecturas orientadas a objetos de sesión, como WebObjects, el servidor crea un objeto de sesión en la primera petición del usuario y restaura su estado en cada ciclo posterior, garantizando la persistencia de la información entre transacciones sucesivas \cite{apple_webobjects}. La correcta gestión de sesiones es determinante para la escalabilidad, ya que la afinidad de servidor asociada al almacenamiento local de sesiones puede limitar el balanceo de carga en entornos distribuidos \cite{guidance_share}.
+
+\subsection{Los objetos Application y Page}
+
+El objeto Application almacena información compartida por todas las sesiones activas dentro de un mismo directorio virtual o contexto de despliegue, sirviendo como espacio de datos común a nivel de toda la aplicación \cite{yang_asp}. Por su parte, el objeto Page (o el ámbito de página) delimita el ciclo de vida más corto dentro del modelo de objetos integrados, existiendo únicamente durante el procesamiento de una única petición-respuesta. La combinación jerárquica de estos ámbitos —petición, sesión y aplicación— define el modelo clásico de gestión de estado en aplicaciones web dinámicas, y su diseño influye directamente en decisiones posteriores de escalabilidad, como el uso de componentes sin estado (\textit{stateless}) para facilitar el despliegue en granjas de servidores \cite{guidance_share}.
