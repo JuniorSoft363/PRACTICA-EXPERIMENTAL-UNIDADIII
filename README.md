@@ -1,1 +1,1 @@
-Bibliographic Research — Unit 3 3
+Bibliographic Research — Unit 3
