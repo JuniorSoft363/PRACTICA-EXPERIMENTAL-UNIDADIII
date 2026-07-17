@@ -1,0 +1,17 @@
+\section{Topic 2: Accessing Data from Web Applications}
+
+\subsection{Tecnologías de acceso a datos en aplicaciones web}
+
+El acceso a datos desde una aplicación web puede realizarse mediante distintas tecnologías, entre las que destacan la conectividad nativa a través de controladores estándar (JDBC en el ecosistema Java) y las capas de abstracción orientadas a objetos como los proveedores de la Java Persistence API (JPA). JDBC es una interfaz de programación (API) que define cómo una aplicación interactúa con una base de datos mediante sentencias SQL, siendo independiente del motor de base de datos utilizado, aunque su uso requiere un controlador específico para cada fabricante \cite{ubt_jpa}. La elección entre acceso directo y capas de abstracción constituye una decisión arquitectónica que impacta el rendimiento, la mantenibilidad y la portabilidad del sistema.
+
+\subsection{Consultas SQL desde aplicaciones web}
+
+La ejecución de consultas SQL desde el código de la aplicación es el mecanismo más directo de acceso a datos y ofrece control explícito sobre el rendimiento de cada operación. Estudios comparativos entre el uso de JDBC puro y frameworks de mapeo objeto-relacional han demostrado que la ejecución de sentencias SQL controladas manualmente (por ejemplo mediante \texttt{PreparedStatement}) puede superar en rendimiento a las herramientas ORM, aunque a costa de mayor esfuerzo de codificación y menor abstracción del modelo de dominio \cite{doaj_orm}, \cite{vanzyl_orm}. Este hallazgo resulta relevante al momento de seleccionar la estrategia de persistencia según los requisitos no funcionales del proyecto.
+
+\subsection{Procedimientos almacenados y funciones de BD}
+
+Los procedimientos almacenados y las funciones de base de datos son bloques de código SQL precompilados y almacenados en el motor de datos, que permiten encapsular lógica de negocio cerca de los datos, reducir el tráfico de red entre la aplicación y el servidor de base de datos, y reutilizar rutinas complejas de manera centralizada. Su uso está estrechamente relacionado con las decisiones de arquitectura por capas, ya que definen dónde reside la lógica de acceso y transformación de datos: en la capa de aplicación o en la capa de persistencia \cite{ubt_jpa}. Este equilibrio entre lógica embebida en la base de datos y lógica gestionada por el framework de acceso a datos es también objeto de análisis en la literatura sobre patrones de persistencia empresarial \cite{jcsi_orm}.
+
+\subsection{ORM y mapeo objeto-relacional}
+
+El mapeo objeto-relacional (ORM, por sus siglas en inglés) es una técnica que permite convertir datos entre el modelo de objetos utilizado por un lenguaje de programación orientado a objetos y el modelo relacional de una base de datos, resolviendo el denominado ``desajuste de impedancia objeto-relacional'' \cite{ubt_jpa}, \cite{vanzyl_orm}. Entre los frameworks más estudiados en la literatura académica se encuentran Hibernate, EclipseLink, OpenJPA y DataNucleus, cuyo desempeño ha sido comparado en estudios experimentales que evalúan tiempos de ejecución, configuración y facilidad de uso \cite{jcsi_orm}. Los resultados de estas investigaciones muestran que, si bien el ORM introduce una sobrecarga de rendimiento frente al SQL directo, sus beneficios en productividad, mantenibilidad y abstracción del modelo de dominio lo convierten en una alternativa ampliamente adoptada en el desarrollo empresarial \cite{vanzyl_orm}, \cite{lazarenko_arch}.
