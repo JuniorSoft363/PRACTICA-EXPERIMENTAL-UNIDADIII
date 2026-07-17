@@ -1,0 +1,51 @@
+\documentclass[12pt,a4paper]{article}
+
+% ---------- PAQUETES ----------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+% Si tu instalación de LaTeX incluye el paquete de idioma español para babel,
+% puedes activar guionado y formato de fecha en español descomentando la siguiente línea:
+% \usepackage[spanish,es-noshorthands]{babel}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{times}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\usepackage{cite} % agrupa citas [1]-[3] al estilo IEEE
+
+\hypersetup{colorlinks=true, linkcolor=blue, citecolor=blue, urlcolor=blue}
+\onehalfspacing
+\titleformat{\section}{\normalfont\Large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalfont\large\bfseries}{\thesubsection}{1em}{}
+
+\title{\textbf{Investigación Bibliográfica}\\[0.3cm]
+Unidad 3: Acceso a Datos y Patrones Arquitecturales}
+\author{NN \\ Grupo 3 \\ Universidad Técnica Estatal de Quevedo}
+\date{Julio de 2026}
+
+\begin{document}
+
+\maketitle
+\thispagestyle{empty}
+\newpage
+
+\tableofcontents
+\newpage
+
+\input{secciones/introduccion}
+
+\input{secciones/tema1}
+
+\input{secciones/tema2}
+
+\input{secciones/tema3}
+
+\input{secciones/tema4}
+
+\input{secciones/conclusiones}
+
+\newpage
+\bibliographystyle{ieeetr}
+\bibliography{referencias}
+
+\end{document}
